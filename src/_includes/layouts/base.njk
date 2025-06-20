@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description | safe }}">
+  <meta name="keywords" content="trans history, transgender history, LGBTQ history, gender identity">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ siteUrl }}">
+  <meta property="og:title" content="{{ title | safe }}">
+  <meta property="og:description" content="{{ description | safe }}">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ siteUrl }}">
+  <meta property="twitter:title" content="{{ title | safe }}">
+  <meta property="twitter:description" content="{{ description | safe }}">
+  
+  <title>{{ title | safe }} | Trans History Project</title>
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">Trans History Project</a>
+      <ul>
+        <li><a href="/timeline">Timeline</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ date | date("YYYY") }} Trans History Project. All rights reserved.</p>
+    <p><a href="/accessibility">Accessibility Statement</a></p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

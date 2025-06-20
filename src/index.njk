@@ -1,0 +1,30 @@
+---
+layout: base
+title: "Trans History Archive"
+description: "A digital archive documenting the history of trans identities in the United States and beyond"
+---
+
+<h1>Welcome to the Trans History Archive</h1>
+
+<p>This archive documents significant events, people, and milestones in the history of trans identities. Our goal is to preserve and share this important history for education and awareness.</p>
+
+<h2>Latest Entries</h2>
+<ul>
+  {% for entry in collections.all | reverse %}
+    <li>
+      <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+      <p><time datetime="{{ entry.date | date('YYYY-MM-DD') }}">{{ entry.date | date('MMMM YYYY') }}</time> - {{ entry.data.location }}</p>
+      <p>{{ entry.content | truncate(200) }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>How to Contribute</h2>
+<ol>
+  <li>Clone this repository</li>
+  <li>Copy the template from <code>_data/template.md</code></li>
+  <li>Fill in the details for your entry</li>
+  <li>Save the file with a descriptive name and date (e.g., <code>1952-harry-benjamin.md</code>)</li>
+  <li>Run <code>npm run build</code> to generate the site</li>
+  <li>Create a pull request with your changes</li>
+</ol>

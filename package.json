@@ -1,0 +1,17 @@
+{
+  "name": "trans-history-site",
+  "version": "1.0.0",
+  "description": "A website documenting the history of trans identities in the United States and beyond",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "deploy": "eleventy && netlify deploy --prod"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^2.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^8.0.0",
+    "eleventy-plugin-rss": "^1.2.1",
+    "eleventy-plugin-sitemap": "^1.0.0"
+  }
+}

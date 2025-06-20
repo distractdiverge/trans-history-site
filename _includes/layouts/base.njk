@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description | safe }}">
+    <title>{{ title }} | Trans History Archive</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Trans History Archive</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/timeline">Timeline</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; {{ date | date("YYYY") }} Trans History Archive</p>
+            <p>Powered by <a href="https://11ty.dev">Eleventy</a></p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
