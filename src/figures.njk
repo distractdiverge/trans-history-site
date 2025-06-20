@@ -1,0 +1,15 @@
+---
+pagination:
+  data: collections.figuresByYear
+  size: 1
+  alias: figure
+  addAllPagesToCollections: true
+permalink: "figures/{{ figure.fileSlug }}/index.html"
+layout: figure.njk
+eleventyComputed:
+  title: "{{ figure.data.name }} | Trans History Project"
+  description: "{{ figure.data.summary }}"
+  image: "{{ figure.data.image }}"
+---
+
+{{ figure.templateContent | safe }}

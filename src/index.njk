@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: base.njk
 title: "Trans History Archive"
 description: "A digital archive documenting the history of trans identities in the United States and beyond"
 ---
@@ -8,16 +8,21 @@ description: "A digital archive documenting the history of trans identities in t
 
 <p>This archive documents significant events, people, and milestones in the history of trans identities. Our goal is to preserve and share this important history for education and awareness.</p>
 
-<h2>Latest Entries</h2>
-<ul>
-  {% for entry in collections.all | reverse %}
-    <li>
-      <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
-      <p><time datetime="{{ entry.date | date('YYYY-MM-DD') }}">{{ entry.date | date('MMMM YYYY') }}</time> - {{ entry.data.location }}</p>
-      <p>{{ entry.content | truncate(200) }}</p>
-    </li>
+<h2>Featured Figures</h2>
+<div class="figure-grid">
+  {% for figure in collections.figuresByYear %}
+    <article class="figure-card">
+      <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.data.name }}</a></h3>
+      {% if figure.data.born or figure.data.died %}
+        <p class="lifespan">
+          {% if figure.data.born %}{{ figure.data.born }}{% endif %}{% if figure.data.died %} – {{ figure.data.died }}{% endif %}
+        </p>
+      {% endif %}
+      <p>{{ figure.data.summary | truncate(150) }}</p>
+      <a href="/figures/{{ figure.fileSlug }}/" class="button">Learn more</a>
+    </article>
   {% endfor %}
-</ul>
+</div>
 
 <h2>How to Contribute</h2>
 <ol>

@@ -1,0 +1,76 @@
+---
+layout: base.njk
+---
+
+<article class="figure-detail">
+  <header class="figure-header">
+    <h1>{{ name }}</h1>
+    {% if born or died %}
+      <p class="lifespan">
+        {% if born %}{{ born }}{% endif %}{% if died %} – {{ died }}{% endif %}
+      </p>
+    {% endif %}
+    {% if pronouns %}
+      <p class="pronouns">Pronouns: {{ pronouns }}</p>
+    {% endif %}
+  </header>
+
+  <div class="figure-content">
+    {{ content | safe }}
+  </div>
+
+  {% if notable_for and notable_for.length > 0 %}
+    <section class="notable-for">
+      <h2>Notable For</h2>
+      <ul>
+        {% for item in notable_for %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if sources and sources.length > 0 %}
+    <section class="sources">
+      <h2>Sources</h2>
+      <ul>
+        {% for source in sources %}
+          <li>{{ source | safe }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</article>
+
+<nav class="figure-navigation">
+  {% if collections.figuresByYear %}
+    {% assign prev = null %}
+    {% assign next = null %}
+    {% for item in collections.figuresByYear %}
+      {% if item.fileSlug == fileSlug %}
+        {% assign prev = prevItem %}
+      {% elsif prev and next == null %}
+        {% assign next = item %}
+      {% endif %}
+      {% assign prevItem = item %}
+    {% endfor %}
+
+    <div class="nav-links">
+      {% if prev %}
+        <a href="/figures/{{ prev.fileSlug }}/" class="nav-previous">
+          &larr; {{ prev.data.name }}
+        </a>
+      {% endif %}
+      
+      {% if next %}
+        <a href="/figures/{{ next.fileSlug }}/" class="nav-next">
+          {{ next.data.name }} &rarr;
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <div class="back-link">
+    <a href="/">&larr; Back to all figures</a>
+  </div>
+</nav>

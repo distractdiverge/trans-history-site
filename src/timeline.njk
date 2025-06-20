@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: "Timeline of Trans History"
+description: "A chronological timeline of significant transgender figures and events in history"
+---
+
+<h1>Timeline of Trans History</h1>
+
+<p>Explore the lives and contributions of transgender individuals throughout history, presented in chronological order.</p>
+
+<div class="timeline">
+  {% for figure in collections.figuresByYear | sort(false, false, 'data.born') %}
+    <div class="timeline-item">
+      <div class="timeline-year">
+        {% if figure.data.born %}
+          {{ figure.data.born }}
+        {% else %}
+          {{ figure.fileSlug | split("-") | first }}
+        {% endif %}
+      </div>
+      <div class="timeline-content">
+        <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.data.name }}</a></h3>
+        {% if figure.data.pronouns %}
+          <p class="pronouns">{{ figure.data.pronouns }}</p>
+        {% endif %}
+        <p>{{ figure.data.summary }}</p>
+        <a href="/figures/{{ figure.fileSlug }}/" class="button">Learn more</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>

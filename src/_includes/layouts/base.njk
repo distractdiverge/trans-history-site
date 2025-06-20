@@ -22,25 +22,27 @@
   
   <link rel="stylesheet" href="/css/main.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
     <nav>
       <a href="/" class="logo">Trans History Project</a>
       <ul>
-        <li><a href="/timeline">Timeline</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="/" {% if page.url === '/' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="/timeline/" {% if page.url === '/timeline/' %}class="active"{% endif %}>Timeline</a></li>
+        <li><a href="/resources/" {% if page.url === '/resources/' %}class="active"{% endif %}>Resources</a></li>
+        <li><a href="/about/" {% if page.url === '/about/' %}class="active"{% endif %}>About</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
+  <main class="container">
     {{ content | safe }}
   </main>
 
   <footer>
-    <p>&copy; {{ date | date("YYYY") }} Trans History Project. All rights reserved.</p>
+    <p>&copy; {% year %} Trans History Project. All rights reserved.</p>
     <p><a href="/accessibility">Accessibility Statement</a></p>
   </footer>
 
