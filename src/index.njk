@@ -19,7 +19,7 @@ description: "A digital archive documenting the history of trans identities in t
         </p>
       {% endif %}
       <p>{{ figure.data.summary | truncate(150) }}</p>
-      <a href="/figures/{{ figure.fileSlug }}/" class="button">Learn more</a>
+      <a href="/figures/{{ figure.fileSlug }}/" class="button" aria-label="Learn more about {{ figure.data.name }}">Learn more</a>
     </article>
   {% endfor %}
 </div>

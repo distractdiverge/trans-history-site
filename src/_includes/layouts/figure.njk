@@ -42,35 +42,32 @@ layout: base.njk
   {% endif %}
 </article>
 
-<nav class="figure-navigation">
-  {% if collections.figuresByYear %}
-    {% assign prev = null %}
-    {% assign next = null %}
-    {% for item in collections.figuresByYear %}
-      {% if item.fileSlug == fileSlug %}
-        {% assign prev = prevItem %}
-      {% elsif prev and next == null %}
-        {% assign next = item %}
-      {% endif %}
-      {% assign prevItem = item %}
-    {% endfor %}
+<nav class="figure-navigation" aria-label="Figure navigation">
+  {#- Find previous and next figures in the collection -#}
+  {% set prev = null %}
+  {% set next = null %}
+  {% for item in collections.figuresByYear %}
+    {% if item.fileSlug == figure.fileSlug %}
+      {% set prev = collections.figuresByYear[loop.index0 - 1] %}
+      {% set next = collections.figuresByYear[loop.index0 + 1] %}
+    {% endif %}
+  {% endfor %}
 
-    <div class="nav-links">
-      {% if prev %}
-        <a href="/figures/{{ prev.fileSlug }}/" class="nav-previous">
-          &larr; {{ prev.data.name }}
-        </a>
-      {% endif %}
-      
-      {% if next %}
-        <a href="/figures/{{ next.fileSlug }}/" class="nav-next">
-          {{ next.data.name }} &rarr;
-        </a>
-      {% endif %}
-    </div>
-  {% endif %}
+  <div class="nav-links">
+    {% if prev %}
+      <a href="/figures/{{ prev.fileSlug }}/" class="nav-previous" aria-label="Previous figure: {{ prev.data.name }}">
+        &larr; {{ prev.data.name }}
+      </a>
+    {% endif %}
+    
+    {% if next %}
+      <a href="/figures/{{ next.fileSlug }}/" class="nav-next" aria-label="Next figure: {{ next.data.name }}">
+        {{ next.data.name }} &rarr;
+      </a>
+    {% endif %}
+  </div>
   
   <div class="back-link">
-    <a href="/">&larr; Back to all figures</a>
+    <a href="/timeline/">&larr; Back to Timeline</a>
   </div>
 </nav>

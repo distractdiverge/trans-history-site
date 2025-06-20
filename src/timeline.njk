@@ -8,9 +8,9 @@ description: "A chronological timeline of significant transgender figures and ev
 
 <p>Explore the lives and contributions of transgender individuals throughout history, presented in chronological order.</p>
 
-<div class="timeline">
-  {% for figure in collections.figuresByYear | sort(false, false, 'data.born') %}
-    <div class="timeline-item">
+<ol class="timeline">
+  {% for figure in collections.figuresByYear %}
+    <li class="timeline-item">
       <div class="timeline-year">
         {% if figure.data.born %}
           {{ figure.data.born }}
@@ -24,8 +24,8 @@ description: "A chronological timeline of significant transgender figures and ev
           <p class="pronouns">{{ figure.data.pronouns }}</p>
         {% endif %}
         <p>{{ figure.data.summary }}</p>
-        <a href="/figures/{{ figure.fileSlug }}/" class="button">Learn more</a>
+        <a href="/figures/{{ figure.fileSlug }}/" class="button" aria-label="Learn more about {{ figure.data.name }}">Learn more</a>
       </div>
-    </div>
+    </li>
   {% endfor %}
-</div>
+</ol>

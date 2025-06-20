@@ -22,22 +22,22 @@
   
   <link rel="stylesheet" href="/css/main.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <a class="skip-to-content" href="#main-content">Skip to main content</a>
   <header>
-    <nav>
+    <nav aria-label="Main">
       <a href="/" class="logo">Trans History Project</a>
       <ul>
-        <li><a href="/" {% if page.url === '/' %}class="active"{% endif %}>Home</a></li>
-        <li><a href="/timeline/" {% if page.url === '/timeline/' %}class="active"{% endif %}>Timeline</a></li>
-        <li><a href="/resources/" {% if page.url === '/resources/' %}class="active"{% endif %}>Resources</a></li>
-        <li><a href="/about/" {% if page.url === '/about/' %}class="active"{% endif %}>About</a></li>
+        <li><a href="/" {% if page.url === '/' %}class="active" aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="/timeline/" {% if page.url === '/timeline/' %}class="active" aria-current="page"{% endif %}>Timeline</a></li>
+        <li><a href="/resources/" {% if page.url === '/resources/' %}class="active" aria-current="page"{% endif %}>Resources</a></li>
+        <li><a href="/about/" {% if page.url === '/about/' %}class="active" aria-current="page"{% endif %}>About</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     {{ content | safe }}
   </main>
 

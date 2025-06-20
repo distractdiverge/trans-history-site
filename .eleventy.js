@@ -44,7 +44,7 @@ module.exports = function(eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection("figuresByYear", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/_data/*.md").sort((a, b) => {
+    return collectionApi.getFilteredByGlob("./src/figures/*.md").sort((a, b) => {
       const yearA = a.fileSlug.split('-')[0];
       const yearB = b.fileSlug.split('-')[0];
       return yearA - yearB;
@@ -63,7 +63,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       includes: "_includes",
       layouts: "_includes/layouts", // Correctly define layouts directory
-      data: "_data",
+
       output: "_site",
     },
     templateFormats: ["njk", "md", "html"],
