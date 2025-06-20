@@ -7,11 +7,11 @@
     "serve": "eleventy --serve",
     "deploy": "eleventy && netlify deploy --prod"
   },
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-navigation": "^2.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^8.0.0",
-    "eleventy-plugin-rss": "^1.2.1",
-    "eleventy-plugin-sitemap": "^1.0.0"
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.1",
+    "@11ty/eleventy-navigation": "^1.0.4",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
+    "markdown-it-anchor": "^9.2.0"
   }
 }

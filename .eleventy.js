@@ -1,8 +1,8 @@
 module.exports = function(eleventyConfig) {
   // Add plugins
   eleventyConfig.addPlugin(require("@11ty/eleventy-navigation"));
-  eleventyConfig.addPlugin(require("eleventy-plugin-rss"));
-  eleventyConfig.addPlugin(require("eleventy-plugin-sitemap"));
+  eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-rss"));
+  eleventyConfig.addPlugin(require("@quasibit/eleventy-plugin-sitemap"));
   
   // Add markdown-it plugins for better markdown support
   let markdownIt = require("markdown-it");
