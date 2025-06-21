@@ -11,7 +11,6 @@ description: "A chronological timeline of significant transgender figures and ev
 <ol class="timeline">
   {% for figure in collections.figuresByYear %}
     <li class="timeline-item">
-      <span class="timeline-marker"></span>
       <div class="timeline-year">
         {{ figure.fileSlug | split("-") | first }}
       </div>

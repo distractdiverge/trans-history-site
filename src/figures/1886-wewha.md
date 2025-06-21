@@ -4,6 +4,7 @@ name: We'wha
 pronouns: she/her (referred to as a Zuni lhamana, a third gender)
 born: 1849
 died: 1896
+image: wewha.webp
 summary: We'wha was a Zuni Native American from New Mexico. As a lhamana, a traditional Zuni third gender, We'wha lived as both a man and a woman and was a respected cultural ambassador and artist.
 notable_for:
   - >
@@ -19,7 +20,6 @@ sources:
     "The Zuni Man-Woman" by Will Roscoe
   - >
     Matilda Coxe Stevenson's anthropological writings
-image: ""
 ---
 
 We'wha was a highly respected member of the Zuni tribe and one of the most famous lhamana, a traditional third-gender role in Zuni culture. Born in 1849, We'wha was biologically male but lived and dressed as a woman, undertaking tasks associated with both men and women. This blended role was not seen as contradictory within Zuni society but as a unique and spiritually significant identity.

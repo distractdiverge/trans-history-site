@@ -4,6 +4,7 @@ name: Albert D. J. Cashier
 pronouns: he/him
 born: 1862
 died: 1915
+image: Albert-Cashier.webp
 summary: Albert Cashier was an Irish-born man who served in the Union Army during the American Civil War. He lived as a man for most of his life, and his assigned sex was only discovered late in his life, leading to a legal battle to retain his veteran's pension.
 notable_for:
   - >
@@ -17,7 +18,6 @@ sources:
     "My Days of Anger: A Story of the American Civil War" by James M. McPherson (Note: Fictionalized account)
   - >
     Public records and pension files from the U.S. National Archives.
-image: ""
 ---
 
 Albert Cashier, born Jennie Irene Hodgers in Clogherhead, Ireland, was a transgender man who served in the Union Army during the American Civil War. He enlisted in the 95th Illinois Infantry in 1862 and fought in numerous major campaigns, including the Siege of Vicksburg. His comrades knew him as a brave and capable soldier, and his identity as a person assigned female at birth remained a secret throughout the war.

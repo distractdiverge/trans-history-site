@@ -4,6 +4,7 @@ name: Brandon Teena
 pronouns: he/him
 born: 1972
 died: 1993
+image: BrandonTeena.jpg
 summary: Brandon Teena was an American trans man who was raped and murdered in Humboldt, Nebraska. His life and death were the subject of the Academy Award-winning film "Boys Don't Cry," which brought widespread attention to transgender issues and hate crimes.
 notable_for:
   - >
@@ -17,7 +18,6 @@ sources:
     "All She Wanted" by Aphrodite Jones
   - >
     "The Brandon Teena Story" (1998 documentary)
-image: ""
 ---
 
 Brandon Teena was a young transgender man from Lincoln, Nebraska, whose life was tragically cut short. After moving to the small town of Falls City, Nebraska, he found friendship and romance, living as a man. However, after his transgender status was discovered, he was brutally raped and murdered by two male acquaintances in December 1993.
