@@ -39,6 +39,11 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toISO();
   });
 
+  // Custom split filter
+  eleventyConfig.addFilter("split", (string, separator) => {
+    return string.split(separator);
+  });
+
   // Shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 

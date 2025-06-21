@@ -1,0 +1,41 @@
+/* Print-specific styles */
+@media print {
+  body {
+    font-family: 'Times New Roman', serif;
+    color: #000;
+    background: #fff;
+  }
+
+  header, footer, .detail-actions, .editorial-history .qr-code, .figure-navigation {
+    display: none;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .detail-page {
+    box-shadow: none;
+    border: none;
+  }
+
+  .detail-hero {
+    text-align: left;
+    border-bottom: 2px solid #000;
+  }
+
+  .detail-image-wrapper {
+    display: none; /* Hide image in print by default */
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .editorial-history p a::after {
+    content: ' (' attr(href) ')';
+  }
+}

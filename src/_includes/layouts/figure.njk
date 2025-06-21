@@ -2,44 +2,49 @@
 layout: base.njk
 ---
 
-<article class="figure-detail">
-  <header class="figure-header">
-    <h1>{{ name }}</h1>
-    {% if born or died %}
-      <p class="lifespan">
-        {% if born %}{{ born }}{% endif %}{% if died %} – {{ died }}{% endif %}
-      </p>
-    {% endif %}
-    {% if pronouns %}
-      <p class="pronouns">Pronouns: {{ pronouns }}</p>
-    {% endif %}
+<article class="detail-page">
+  <header class="detail-hero">
+    <div class="detail-image-wrapper">
+      {% if image %}
+        <img src="/images/{{ image }}" alt="{{ name }}" class="detail-image">
+      {% else %}
+        <div class="detail-image-placeholder"></div>
+      {% endif %}
+    </div>
+    <div class="detail-title">
+      <h1>{{ name }}</h1>
+      {% if born or died %}
+      <p class="lifespan">({% if born %}{{ born }}{% endif %}&ndash;{% if died %}{{ died }}{% endif %})</p>
+      {% endif %}
+    </div>
+    <div class="detail-actions">
+      <button class="button share-button">Share</button>
+      <a href="{{ site.repositoryUrl }}/edit/main/src/figures/{{ page.fileSlug }}.md" class="button suggest-edit-button" target="_blank">Suggest Edit</a>
+    </div>
   </header>
 
-  <div class="figure-content">
+  <section class="detail-section biography">
+    <h2>Biography</h2>
     {{ content | safe }}
-  </div>
+  </section>
 
   {% if notable_for and notable_for.length > 0 %}
-    <section class="notable-for">
-      <h2>Notable For</h2>
-      <ul>
-        {% for item in notable_for %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    </section>
+  <section class="detail-section notable-for">
+    <h2>Notable For</h2>
+    <ul>
+      {% for item in notable_for %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </section>
   {% endif %}
 
-  {% if sources and sources.length > 0 %}
-    <section class="sources">
-      <h2>Sources</h2>
-      <ul>
-        {% for source in sources %}
-          <li>{{ source | safe }}</li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endif %}
+  <section class="detail-section editorial-history">
+    <h2>Editorial History</h2>
+    <p>To improve this entry, please <a href="{{ site.repositoryUrl }}/edit/main/src/figures/{{ page.fileSlug }}.md" target="_blank">suggest an edit on GitHub</a>.</p>
+    <div class="qr-code" id="edit-qr-code"></div>
+  </section>
+
 </article>
 
 <nav class="figure-navigation" aria-label="Figure navigation">
@@ -47,26 +52,25 @@ layout: base.njk
   {% set prev = null %}
   {% set next = null %}
   {% for item in collections.figuresByYear %}
-    {% if item.fileSlug == figure.fileSlug %}
+    {% if item.url == page.url %}
       {% set prev = collections.figuresByYear[loop.index0 - 1] %}
       {% set next = collections.figuresByYear[loop.index0 + 1] %}
     {% endif %}
   {% endfor %}
 
-  <div class="nav-links">
+  <ul class="pagination">
     {% if prev %}
-      <a href="/figures/{{ prev.fileSlug }}/" class="nav-previous" aria-label="Previous figure: {{ prev.data.name }}">
-        &larr; {{ prev.data.name }}
-      </a>
+    <li class="prev"><a href="{{ prev.url | url }}">&larr; {{ prev.data.name }}</a></li>
+    {% else %}
+    <li></li> {# Empty item for spacing #}
     {% endif %}
-    
     {% if next %}
-      <a href="/figures/{{ next.fileSlug }}/" class="nav-next" aria-label="Next figure: {{ next.data.name }}">
-        {{ next.data.name }} &rarr;
-      </a>
+    <li class="next"><a href="{{ next.url | url }}">{{ next.data.name }} &rarr;</a></li>
+    {% else %}
+    <li></li> {# Empty item for spacing #}
     {% endif %}
-  </div>
-  
+  </ul>
+
   <div class="back-link">
     <a href="/timeline/">&larr; Back to Timeline</a>
   </div>
