@@ -143,78 +143,90 @@ main h1 {
 
 /* Timeline styles */
 .timeline {
-  list-style: none;
-  padding: 2rem 0;
-  margin: 0 auto;
   position: relative;
-  max-width: 800px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
+/* Center line */
 .timeline::before {
   content: '';
   position: absolute;
+  width: 4px;
+  background: var(--primary-color);
   top: 0;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 100%;
-  background-color: var(--primary-color);
+  margin-left: -2px;
 }
 
+/* Timeline items */
 .timeline-item {
-  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+/* Marker with date */
+.timeline-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 50%;
+  z-index: 1;
+  grid-column: 2;
+  width: 30px;
 }
 
-.timeline-item:nth-child(odd) {
-  left: 0;
-  padding-right: 3rem;
-  text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-  left: 50%;
-  padding-left: 3rem;
-}
-
-.timeline-item::after {
+.timeline-marker::before {
   content: '';
-  position: absolute;
   width: 20px;
   height: 20px;
-  right: -11.5px;
-  background-color: white;
-  border: 4px solid var(--primary-color);
-  top: 25px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.timeline-item:nth-child(even)::after {
-  left: -8.5px;
-}
-
-.timeline-content {
-  padding: 1.5rem;
   background: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  position: relative;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
 }
 
-.timeline-year {
+.timeline-date {
   background-color: var(--primary-color);
   color: white;
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
   font-weight: bold;
-  display: inline-block;
-  margin-bottom: 1rem;
+  position: absolute;
+  top: -35px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+/* Content box */
+.timeline-content {
+  padding: 1.5rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  grid-column: 3;
+}
+
+/* Left side content - even items */
+.timeline-item:nth-child(even) .timeline-content {
+  grid-column: 1;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+  grid-column: 2;
 }
 
 .timeline-content h3 {
   margin-top: 0;
+  margin-bottom: 0.75rem;
 }
 
 .timeline-content .pronouns {
@@ -223,26 +235,32 @@ main h1 {
   margin-bottom: 0.5rem;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
+/* Mobile responsive */
+@media (max-width: 768px) {
   .timeline::before {
-    left: 10px;
-    transform: translateX(0);
+    left: 1rem;
+    margin-left: 0;
   }
 
-  .timeline-item,
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    width: 100%;
-    left: 0;
-    padding-left: 3rem;
-    padding-right: 1rem;
+  .timeline-item {
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+  }
+
+  .timeline-marker,
+  .timeline-item:nth-child(even) .timeline-marker {
+    grid-column: 1;
+  }
+
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    grid-column: 2;
     text-align: left;
   }
 
-  .timeline-item::after,
-  .timeline-item:nth-child(even)::after {
-    left: -1.5px;
+  .timeline-date {
+    top: 0;
+    left: 40px;
   }
 }
 
