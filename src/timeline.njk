@@ -2,7 +2,16 @@
 layout: base.njk
 title: "Timeline of Trans History"
 description: "A chronological timeline of significant transgender figures and events in history"
+layout: layouts/base.njk
+permalink: /timeline/
+eleventyExcludeFromCollections: {% if not site.features.timeline %}true{% else %}false{% endif %}
 ---
+
+{% if not site.features.timeline %}
+<script>
+  window.location.href = '/';
+</script>
+{% endif %}
 
 <h1>Timeline of Trans History</h1>
 

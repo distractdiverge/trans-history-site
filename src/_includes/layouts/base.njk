@@ -31,7 +31,9 @@
       <a href="/" class="logo">Trans History Project</a>
       <ul>
         <li><a href="/" {% if page.url === '/' %}class="active" aria-current="page"{% endif %}>Home</a></li>
+        {% if site.features.timeline %}
         <li><a href="/timeline/" {% if page.url === '/timeline/' %}class="active" aria-current="page"{% endif %}>Timeline</a></li>
+        {% endif %}
         <li><a href="/resources/" {% if page.url === '/resources/' %}class="active" aria-current="page"{% endif %}>Resources</a></li>
         <li><a href="/about/" {% if page.url === '/about/' %}class="active" aria-current="page"{% endif %}>About</a></li>
       </ul>
