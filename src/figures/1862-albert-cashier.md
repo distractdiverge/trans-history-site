@@ -2,7 +2,7 @@
 title: Albert Cashier
 name: Albert D. J. Cashier
 pronouns: he/him
-born: 1843
+born: 1862
 died: 1915
 summary: Albert Cashier was an Irish-born man who served in the Union Army during the American Civil War. He lived as a man for most of his life, and his assigned sex was only discovered late in his life, leading to a legal battle to retain his veteran's pension.
 notable_for:

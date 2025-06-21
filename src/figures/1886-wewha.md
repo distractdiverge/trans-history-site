@@ -2,7 +2,7 @@
 title: We'wha
 name: We'wha
 pronouns: she/her (referred to as a Zuni lhamana, a third gender)
-born: c. 1849
+born: 1849
 died: 1896
 summary: We'wha was a Zuni Native American from New Mexico. As a lhamana, a traditional Zuni third gender, We'wha lived as both a man and a woman and was a respected cultural ambassador and artist.
 notable_for:
