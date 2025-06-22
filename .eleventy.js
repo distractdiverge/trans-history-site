@@ -12,7 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyRssPlugin);
   eleventyConfig.addPlugin(eleventySitemapPlugin, {
     sitemap: {
-      hostname: "https://trans-history.netlify.app", // Replace with your domain
+      hostname: "https://transtimeline.org", // Replace with your domain
     },
   });
 
