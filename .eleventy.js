@@ -49,27 +49,27 @@ module.exports = function(eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection("figuresByYear", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("./src/figures/*.md").sort((a, b) => {
+    return collectionApi.getFilteredByGlob("../content/figures/*.md").sort((a, b) => {
       const yearA = a.fileSlug.split('-')[0];
       const yearB = b.fileSlug.split('-')[0];
       return yearA - yearB;
     });
   });
 
-  // Passthrough copy
-  eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/js");
-  eleventyConfig.addPassthroughCopy({"_images": "images"});
-  eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  // Passthrough copy for static assets
+  eleventyConfig.addPassthroughCopy({"src/assets/images": "images"});
+  eleventyConfig.addPassthroughCopy({"src/assets/css": "css"});
+  eleventyConfig.addPassthroughCopy({"src/assets/js": "js"});
+  eleventyConfig.addPassthroughCopy({"src/favicon.ico": "/"});
 
   // Directory configuration
   return {
     dir: {
-      input: "src",
-      includes: "_includes",
-      layouts: "_includes/layouts", // Correctly define layouts directory
-
-      output: "_site",
+      input: "src/pages",
+      includes: "../_includes",
+      data: "../_data",
+      layouts: "../_includes/layouts",
+      output: "_site"
     },
     templateFormats: ["njk", "md", "html"],
     markdownTemplateEngine: "njk",
