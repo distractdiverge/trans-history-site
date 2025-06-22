@@ -47,11 +47,23 @@ module.exports = function(eleventyConfig) {
   // Shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // Watch the figures directory for changes
+  // eleventyConfig.addWatchTarget("./src/pages/figures/");
+
   // Collections
   eleventyConfig.addCollection("figuresByYear", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("../content/figures/*.md").sort((a, b) => {
-      const yearA = a.fileSlug.split('-')[0];
-      const yearB = b.fileSlug.split('-')[0];
+    // Get all markdown files from the figures directory
+    const allFiles = collectionApi.getAll();
+    console.log('All files: \n', allFiles.join('\n'));
+    
+    const figures = collectionApi.getFilteredByGlob('**/figures/*.md');
+    console.log(`Found ${figures.length} figure files`);
+    figures.forEach(fig => console.log(`- ${fig.inputPath}`));
+    
+    // Sort figures by year in the filename
+    return figures.sort((a, b) => {
+      const yearA = parseInt(a.fileSlug.split('-')[0], 10) || 0;
+      const yearB = parseInt(b.fileSlug.split('-')[0], 10) || 0;
       return yearA - yearB;
     });
   });
@@ -65,10 +77,11 @@ module.exports = function(eleventyConfig) {
   // Directory configuration
   return {
     dir: {
-      input: "src/pages",
+      input: "src/pages",  // Look for pages in the src/pages directory
+      
       includes: "../_includes",
-      data: "../_data",
       layouts: "../_includes/layouts",
+      data: "../_data",
       output: "_site"
     },
     templateFormats: ["njk", "md", "html"],
