@@ -32,7 +32,7 @@ layout: base.njk
 
   <section class="detail-section biography">
     <h2>Biography</h2>
-    {{ content | safe }}
+    {{ templateContent | markdown | safe }}
   </section>
 
   {% if notable_for and notable_for.length > 0 %}

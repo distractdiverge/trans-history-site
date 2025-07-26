@@ -44,6 +44,14 @@ module.exports = function(eleventyConfig) {
     return string.split(separator);
   });
 
+  // Markdown filter to process raw markdown content
+  eleventyConfig.addFilter("markdown", (content) => {
+    if (!content || typeof content !== 'string') {
+      return '';
+    }
+    return markdownLib.render(content);
+  });
+
   // Shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   
