@@ -99,6 +99,9 @@ module.exports = function(eleventyConfig) {
         url: `/figures/${fileSlug}/`
       };
       
+      console.log(`Processing figure: ${figureData.name}`);
+      console.log(`Figure data: ${JSON.stringify(figureData, null, 2)}`);
+
       return figureData;
     });
     

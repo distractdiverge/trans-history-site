@@ -35,22 +35,23 @@ layout: base.njk
     {{ templateContent | markdown | safe }}
   </section>
 
-  {% if notable_for and notable_for.length > 0 %}
+
+{% if figure.notable_for and figure.notable_for.length > 0 %}
   <section class="detail-section notable-for">
     <h2>Notable For</h2>
     <ul>
-      {% for item in notable_for %}
+      {% for item in figure.notable_for %}
       <li>{{ item | safe }}</li>
       {% endfor %}
     </ul>
   </section>
   {% endif %}
 
-  {% if sources and sources.length > 0 %}
+  {% if figure.sources and figure.sources.length > 0 %}
   <section class="detail-section sources">
     <h2>Sources</h2>
     <ul>
-      {% for source in sources %}
+      {% for source in figure.sources %}
       <li>{{ source | safe }}</li>
       {% endfor %}
     </ul>
