@@ -3,7 +3,7 @@ title: Frances Thompson
 name: Frances Thompson
 pronouns: she/her
 born: "c. 1840"
-died: 1876
+died: "November 28, 1876"
 summary: Frances Thompson was a formerly enslaved Black trans woman whose 1871 congressional testimony about the 1866 Memphis Massacre stands as the first known instance of a transgender woman speaking before the United States Congress.
 notable_for:
   - >
