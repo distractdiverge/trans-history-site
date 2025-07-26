@@ -47,7 +47,7 @@ A digital archive documenting the history of trans identities in the United Stat
 ## Adding Content
 
 1. **Historical Figures**
-   - Create a new Markdown file in `src/content/figures/`
+   - Create a new Markdown file in `content/figures/`
    - Follow the naming convention: `YYYY-name-of-figure.md`
    - Use the following frontmatter structure:
      ```yaml

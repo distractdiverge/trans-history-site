@@ -12,14 +12,14 @@ description: "A digital archive documenting the history of trans identities in t
 <div class="figure-grid">
   {% for figure in collections.figuresByYear %}
     <article class="figure-card">
-      <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.data.name }}</a></h3>
-      {% if figure.data.born or figure.data.died %}
+      <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.name }}</a></h3>
+      {% if figure.born or figure.died %}
         <p class="lifespan">
-          {% if figure.data.born %}{{ figure.data.born }}{% endif %}{% if figure.data.died %} – {{ figure.data.died }}{% endif %}
+          {% if figure.born %}{{ figure.born }}{% endif %}{% if figure.died %} – {{ figure.died }}{% endif %}
         </p>
       {% endif %}
-      <p>{{ figure.data.summary | truncate(150) }}</p>
-      <a href="/figures/{{ figure.fileSlug }}/" class="button" aria-label="Learn more about {{ figure.data.name }}">Learn more</a>
+      <p>{{ figure.summary | truncate(150) }}</p>
+      <a href="/figures/{{ figure.fileSlug }}/" class="button" aria-label="Learn more about {{ figure.name }}">Learn more</a>
     </article>
   {% endfor %}
 </div>

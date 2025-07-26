@@ -82,13 +82,16 @@ module.exports = function(eleventyConfig) {
       const parsed = matter(content);
       const fileSlug = path.basename(filePath, '.md');
       
-      return {
-        data: parsed.data,
-        content: parsed.content,
+      // Create a new object that combines the data with the templateContent
+      const figureData = {
+        ...parsed.data,
+        templateContent: parsed.content,
         fileSlug: fileSlug,
         inputPath: filePath,
         url: `/figures/${fileSlug}/`
       };
+      
+      return figureData;
     });
     
     // Sort figures by year in the filename

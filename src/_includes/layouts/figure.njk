@@ -13,13 +13,20 @@ layout: base.njk
     </div>
     <div class="detail-title">
       <h1>{{ name }}</h1>
+      {% if pronouns %}
+        <p class="pronouns">{{ pronouns }}</p>
+      {% endif %}
       {% if born or died %}
-      <p class="lifespan">({% if born %}{{ born }}{% endif %}&ndash;{% if died %}{{ died }}{% endif %})</p>
+      <p class="lifespan">
+        {% if born %}{{ born }}{% endif %}
+        {% if born and died %}&ndash;{% endif %}
+        {% if died %}{{ died }}{% endif %}
+      </p>
       {% endif %}
     </div>
     <div class="detail-actions">
       <button class="button share-button">Share</button>
-      <a href="{{ site.repositoryUrl }}/edit/main/src/figures/{{ page.fileSlug }}.md" class="button suggest-edit-button" target="_blank">Suggest Edit</a>
+      <a href="{{ site.repositoryUrl }}/edit/main/content/figures/{{ page.fileSlug }}.md" class="button suggest-edit-button" target="_blank">Suggest Edit</a>
     </div>
   </header>
 
@@ -33,7 +40,18 @@ layout: base.njk
     <h2>Notable For</h2>
     <ul>
       {% for item in notable_for %}
-      <li>{{ item }}</li>
+      <li>{{ item | safe }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if sources and sources.length > 0 %}
+  <section class="detail-section sources">
+    <h2>Sources</h2>
+    <ul>
+      {% for source in sources %}
+      <li>{{ source | safe }}</li>
       {% endfor %}
     </ul>
   </section>
@@ -41,10 +59,9 @@ layout: base.njk
 
   <section class="detail-section editorial-history">
     <h2>Editorial History</h2>
-    <p>To improve this entry, please <a href="{{ site.repositoryUrl }}/edit/main/src/figures/{{ page.fileSlug }}.md" target="_blank">suggest an edit on GitHub</a>.</p>
+    <p>To improve this entry, please <a href="{{ site.repositoryUrl }}/edit/main/content/figures/{{ page.fileSlug }}.md" target="_blank" rel="noopener">suggest an edit on GitHub</a>.</p>
     <div class="qr-code" id="edit-qr-code"></div>
   </section>
-
 </article>
 
 <nav class="figure-navigation" aria-label="Figure navigation">
@@ -60,12 +77,12 @@ layout: base.njk
 
   <ul class="pagination">
     {% if prev %}
-    <li class="prev"><a href="{{ prev.url | url }}">&larr; {{ prev.data.name }}</a></li>
+    <li class="prev"><a href="{{ prev.url | url }}">&larr; {{ prev.name }}</a></li>
     {% else %}
     <li></li> {# Empty item for spacing #}
     {% endif %}
     {% if next %}
-    <li class="next"><a href="{{ next.url | url }}">{{ next.data.name }} &rarr;</a></li>
+    <li class="next"><a href="{{ next.url | url }}">{{ next.name }} &rarr;</a></li>
     {% else %}
     <li></li> {# Empty item for spacing #}
     {% endif %}
