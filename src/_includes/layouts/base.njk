@@ -23,6 +23,17 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/print.css" media="print">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  {% if build.id !== 'local' %}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1R76XFZ31"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P1R76XFZ31');
+  </script>
+  {% endif %}
 </head>
 <body>
   <a class="skip-to-content" href="#main-content">Skip to main content</a>
