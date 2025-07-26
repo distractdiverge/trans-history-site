@@ -47,18 +47,41 @@ module.exports = function(eleventyConfig) {
   // Shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
-  // Watch the figures directory for changes
-  // eleventyConfig.addWatchTarget("./src/pages/figures/");
+  // Watch the content directory for changes
+  eleventyConfig.addWatchTarget("./content/");
+  
+  // Ignore files we don't want to process as pages
+  eleventyConfig.ignores.add("README.md");
+  eleventyConfig.ignores.add("docs/**");
+  eleventyConfig.ignores.add("node_modules/**");
+  eleventyConfig.ignores.add(".git/**");
 
   // Collections
   eleventyConfig.addCollection("figuresByYear", (collectionApi) => {
-    // Get all markdown files from the figures directory
-    const allFiles = collectionApi.getAll();
-    console.log('All files: \n', allFiles.join('\n'));
+    const glob = require('glob');
+    const fs = require('fs');
+    const path = require('path');
+    const matter = require('gray-matter');
     
-    const figures = collectionApi.getFilteredByGlob('**/figures/*.md');
-    console.log(`Found ${figures.length} figure files`);
-    figures.forEach(fig => console.log(`- ${fig.inputPath}`));
+    // Get markdown files directly from the content/figures directory
+    const figureFiles = glob.sync('content/figures/*.md');
+    console.log(`Found ${figureFiles.length} figure files`);
+    figureFiles.forEach(fig => console.log(`- ${fig}`));
+    
+    // Process each file and create figure objects
+    const figures = figureFiles.map(filePath => {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const parsed = matter(content);
+      const fileSlug = path.basename(filePath, '.md');
+      
+      return {
+        data: parsed.data,
+        content: parsed.content,
+        fileSlug: fileSlug,
+        inputPath: filePath,
+        url: `/figures/${fileSlug}/`
+      };
+    });
     
     // Sort figures by year in the filename
     return figures.sort((a, b) => {
@@ -77,7 +100,7 @@ module.exports = function(eleventyConfig) {
   // Directory configuration
   return {
     dir: {
-      input: "src/pages",  // Look for pages in the src/pages directory
+      input: "src/pages",  // Keep src/pages as main input for templates
       
       includes: "../_includes",
       layouts: "../_includes/layouts",
