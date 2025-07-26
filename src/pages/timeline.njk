@@ -21,12 +21,12 @@ permalink: /timeline/
         <span class="timeline-date">{{ figure.fileSlug | split("-") | first }}</span>
       </div>
       <div class="timeline-content">
-        <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.data.name }}</a></h3>
-        {% if figure.data.pronouns %}
-          <p class="pronouns">{{ figure.data.pronouns }}</p>
+        <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.name }}</a></h3>
+        {% if figure.pronouns %}
+          <p class="pronouns">{{ figure.pronouns }}</p>
         {% endif %}
-        <p>{{ figure.data.summary }}</p>
-        <a href="/figures/{{ figure.fileSlug }}/" class="button" aria-label="Learn more about {{ figure.data.name }}">Learn more</a>
+        <p>{{ figure.summary }}</p>
+        <a href="/figures/{{ figure.fileSlug }}/" class="button" aria-label="Learn more about {{ figure.name }}">Learn more</a>
       </div>
     </div>
   {% endfor %}
