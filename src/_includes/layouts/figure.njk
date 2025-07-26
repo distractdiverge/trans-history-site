@@ -5,22 +5,22 @@ layout: base.njk
 <article class="detail-page">
   <header class="detail-hero">
     <div class="detail-image-wrapper">
-      {% if image %}
-        <img src="/images/{{ image }}" alt="{{ name }}" class="detail-image">
+      {% if figure.image %}
+        <img src="/images/{{ figure.image }}" alt="{{ figure.name }}" class="detail-image">
       {% else %}
         <div class="detail-image-placeholder"></div>
       {% endif %}
     </div>
     <div class="detail-title">
-      <h1>{{ name }}</h1>
-      {% if pronouns %}
-        <p class="pronouns">{{ pronouns }}</p>
+      <h1>{{ figure.name }}</h1>
+      {% if figure.pronouns %}
+        <p class="pronouns">{{ figure.pronouns }}</p>
       {% endif %}
-      {% if born or died %}
+      {% if figure.born or figure.died %}
       <p class="lifespan">
-        {% if born %}{{ born }}{% endif %}
-        {% if born and died %}&ndash;{% endif %}
-        {% if died %}{{ died }}{% endif %}
+        {% if figure.born %}{{ figure.born }}{% endif %}
+        {% if figure.born and figure.died %}&ndash;{% endif %}
+        {% if figure.died %}{{ figure.died }}{% endif %}
       </p>
       {% endif %}
     </div>
