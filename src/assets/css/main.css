@@ -406,6 +406,20 @@ footer a:hover {
   color: #e0e0e0;
 }
 
+footer .build-info {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+footer .build-info code {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.75rem;
+}
+
 /* Figure grid */
 .figure-grid {
   display: grid;

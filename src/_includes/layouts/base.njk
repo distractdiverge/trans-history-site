@@ -47,6 +47,10 @@
   <footer>
     <p>&copy; {% year %} Trans History Project. All rights reserved.</p>
     <p><a href="/accessibility">Accessibility Statement</a></p>
+    <p class="build-info">
+      Build: <code>{{ build.commitShort }}</code>
+      {% if build.id !== 'local' %} | Netlify: <code>{{ build.id }}</code>{% endif %}
+    </p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>

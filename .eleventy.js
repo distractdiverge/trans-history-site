@@ -46,6 +46,14 @@ module.exports = function(eleventyConfig) {
 
   // Shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  
+  // Add build information from Netlify environment variables
+  eleventyConfig.addGlobalData("build", {
+    id: process.env.BUILD_ID || 'local',
+    commit: process.env.COMMIT_REF || 'dev',
+    commitShort: (process.env.COMMIT_REF || 'dev').substring(0, 7),
+    timestamp: new Date().toISOString()
+  });
 
   // Watch the content directory for changes
   eleventyConfig.addWatchTarget("./content/");
