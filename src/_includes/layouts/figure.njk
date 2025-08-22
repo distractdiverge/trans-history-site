@@ -26,7 +26,7 @@ layout: base.njk
     </div>
     <div class="detail-actions">
       <button class="button share-button">Share</button>
-      <a href="{{ site.repositoryUrl }}/edit/main/content/figures/{{ page.fileSlug }}.md" class="button suggest-edit-button" target="_blank">Suggest Edit</a>
+      <a href="{{ site.repositoryUrl }}/edit/main/{{ figure.inputPath }}" class="button suggest-edit-button" target="_blank">Suggest Edit</a>
     </div>
   </header>
 
@@ -60,7 +60,7 @@ layout: base.njk
 
   <section class="detail-section editorial-history">
     <h2>Editorial History</h2>
-    <p>To improve this entry, please <a href="{{ site.repositoryUrl }}/edit/main/content/figures/{{ page.fileSlug }}.md" target="_blank" rel="noopener">suggest an edit on GitHub</a>.</p>
+    <p>To improve this entry, please <a href="{{ site.repositoryUrl }}/edit/main/{{ figure.inputPath }}" target="_blank" rel="noopener">suggest an edit on GitHub</a>.</p>
     <div class="qr-code" id="edit-qr-code"></div>
   </section>
 </article>
