@@ -52,7 +52,7 @@ layout: base.njk
     <h2>Sources</h2>
     <ul>
       {% for source in figure.sources %}
-      <li>{{ source | safe }}</li>
+      <li>{{ source | markdownInline | safe }}</li>
       {% endfor %}
     </ul>
   </section>
@@ -61,6 +61,7 @@ layout: base.njk
   <section class="detail-section editorial-history">
     <h2>Editorial History</h2>
     <p>To improve this entry, please <a href="{{ site.repositoryUrl }}/edit/main/{{ figure.inputPath }}" target="_blank" rel="noopener">suggest an edit on GitHub</a>.</p>
+    <p>Sign in to GitHub to suggest changes. After editing, commit to a new branch and open a pull request; maintainers will review it.</p>
     <div class="qr-code" id="edit-qr-code"></div>
   </section>
 </article>
