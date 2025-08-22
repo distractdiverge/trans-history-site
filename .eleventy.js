@@ -52,6 +52,14 @@ module.exports = function(eleventyConfig) {
     return markdownLib.render(content);
   });
 
+  // Markdown-inline filter to process inline markdown (e.g., linkify without wrapping <p>)
+  eleventyConfig.addFilter("markdownInline", (content) => {
+    if (!content || typeof content !== 'string') {
+      return '';
+    }
+    return markdownLib.renderInline(content);
+  });
+
   // Shortcode for current year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   
