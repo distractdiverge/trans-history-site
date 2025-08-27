@@ -15,7 +15,7 @@ description: "A digital archive documenting the history of trans identities in t
       <h3><a href="/figures/{{ figure.fileSlug }}/">{{ figure.name }}</a></h3>
       {% if figure.born or figure.died %}
         <p class="lifespan">
-          {% if figure.born %}{{ figure.born }}{% endif %}{% if figure.died %} – {{ figure.died }}{% endif %}
+          {% if figure.born %}<span class='birth-date'>{{ figure.born }}</span>{% endif %}{% if figure.died %} – <span class="death-date">{{ figure.died }}</span>{% endif %}
         </p>
       {% endif %}
       <p>{{ figure.summary | truncate(150) }}</p>
