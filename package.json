@@ -6,7 +6,12 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "dev": "eleventy --serve",
-    "deploy": "eleventy && netlify deploy --prod"
+    "deploy": "eleventy && netlify deploy --prod",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:predeploy": "playwright test --project=chromium --grep=@predeploy",
+    "test:postdeploy": "playwright test --grep=@postdeploy"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.1",
@@ -16,5 +21,9 @@
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",
     "markdown-it-anchor": "^9.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.5.0"
   }
 }
