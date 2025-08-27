@@ -14,23 +14,23 @@ test.describe('Pre-deploy Navigation Tests @predeploy', () => {
     await expect(nav).toBeVisible();
     
     // Check if main navigation links work
-    const homeLink = page.locator('nav a[href="/"]');
+    const homeLink = page.locator('header nav ul li a[href="/"]');
     await expect(homeLink).toBeVisible();
     
-    const figuresLink = page.locator('nav a[href="/figures/"]');
-    await expect(figuresLink).toBeVisible();
+    const timelineLink = page.locator('header nav ul li a[href="/timeline/"]');
+    await expect(timelineLink).toBeVisible();
   });
 
   test('figures page loads', async ({ page }) => {
-    await page.goto('/figures/');
-    await expect(page.locator('h1')).toContainText(/çFigures/i);
+    await page.goto('/timeline/');
+    await expect(page.locator('h1')).toContainText(/Timeline/i);
   });
 
   test('individual figure pages load', async ({ page }) => {
-    await page.goto('/figures/');
+    await page.goto('/');
     
     // Find the first figure link and click it
-    const firstFigureLink = page.locator('.figure-link').first();
+    const firstFigureLink = page.locator('.figure-card a').first();
     const href = await firstFigureLink.getAttribute('href');
     
     if (href) {
