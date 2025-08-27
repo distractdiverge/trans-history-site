@@ -136,6 +136,8 @@ test.describe('Post-deploy Live Site Verification @postdeploy', () => {
   test('accessibility - keyboard navigation', async ({ page }) => {
     await page.goto('/');
     
+    await page.waitForLoadState('networkidle');
+
     // Tab through interactive elements
     await page.keyboard.press('Tab');
     const firstFocused = await page.evaluate(() => document.activeElement?.tagName);
@@ -147,6 +149,8 @@ test.describe('Post-deploy Live Site Verification @postdeploy', () => {
     
     // Should be able to activate links with Enter
     await page.keyboard.press('Enter');
+    await page.waitForLoadState('networkidle');
+    
     await expect(page).toBeTruthy();
   });
 
