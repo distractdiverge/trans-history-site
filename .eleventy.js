@@ -125,7 +125,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/assets/images": "images"});
   eleventyConfig.addPassthroughCopy({"src/assets/css": "css"});
   eleventyConfig.addPassthroughCopy({"src/assets/js": "js"});
-  eleventyConfig.addPassthroughCopy({"src/favicon.ico": "/"});
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/favicon/apple-touch-icon.png": "apple-touch-icon.png",
+    "src/assets/images/favicon/favicon-32x32.png": "favicon-32x32.png",
+    "src/assets/images/favicon/favicon-16x16.png": "favicon-16x16.png",
+    "src/assets/images/favicon/android-chrome-192x192.png": "android-chrome-192x192.png",
+    "src/assets/images/favicon/android-chrome-512x512.png": "android-chrome-512x512.png",
+    "src/assets/images/favicon/site.webmanifest": "site.webmanifest",
+    "src/assets/images/favicon/favicon.ico": "favicon.ico"
+  });
 
   // Directory configuration
   return {

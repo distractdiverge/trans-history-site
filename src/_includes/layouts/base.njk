@@ -20,19 +20,25 @@
   
   <title>{{ title | safe }} | Trans History Project</title>
   
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/print.css" media="print">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   {% if build.id !== 'local' %}
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1R76XFZ31"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-P1R76XFZ31');
-  </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1R76XFZ31"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P1R76XFZ31');
+    </script>
   {% endif %}
 </head>
 <body>
@@ -58,6 +64,7 @@
   <footer>
     <p>&copy; {% year %} Trans History Project. All rights reserved.</p>
     <p><a href="/accessibility">Accessibility Statement</a></p>
+    <p><a href="/attributions/">Attributions</a></p>
     <p class="build-info">
       Build: <code>{{ build.commitShort }}</code>
       {% if build.id !== 'local' %} | Netlify: <code>{{ build.id }}</code>{% endif %}
