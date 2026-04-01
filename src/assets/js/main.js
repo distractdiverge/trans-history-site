@@ -49,4 +49,21 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // De-obfuscate email links
+  const obfuscatedEmails = document.querySelectorAll('.js-email-link');
+  obfuscatedEmails.forEach(link => {
+    const user = link.getAttribute('data-user');
+    const domain = link.getAttribute('data-domain');
+    const tld = link.getAttribute('data-tld') || 'com';
+
+    if (user && domain) {
+      const email = `${user}@${domain}.${tld}`;
+      link.href = `mailto:${email}`;
+
+      if (link.getAttribute('data-keep-text') !== 'true') {
+        link.textContent = email;
+      }
+    }
+  });
 });
